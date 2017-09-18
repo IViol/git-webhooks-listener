@@ -27,7 +27,7 @@ app.post('/*', function(req, res, next) {
   if (event === 'ping') {
     return listeners.ping(res)
   } else if (event === 'push') {
-    return listeners.push(payload, res)
+    return listeners.push(res)
   } else if (event === 'pull_request') {
     return listeners.pullRequest(payload, res)
   }
