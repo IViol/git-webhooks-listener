@@ -15,7 +15,7 @@ module.exports = function pullRequest(payload, res) {
     return res.status(201).json({ message: 'Payload was not for master. Aborting.' })
   }
 
-  if (action !== 'assigned') {
+  if (action !== 'closed') {
     return res.status(201).json({ message: 'Payload was not for merged PR. Aborting.' })
   }
 
