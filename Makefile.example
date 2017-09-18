@@ -1,0 +1,10 @@
+PROJECT_DIR = </your/repo/dir>
+PWD = /bin/pwd
+MAKE = /usr/bin/make
+
+pull-request:
+  cd $(PROJECT_DIR) && \
+  $(PWD) && \
+  $(MAKE) git-pull && \
+  $(MAKE) docker-build && \
+  $(MAKE) docker-restart
