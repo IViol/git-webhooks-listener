@@ -29,9 +29,9 @@ app.post('/push', function(req, res, next) {
 
   spawned.on('close', (code) => {
     console.log(`child process exited with code ${code}`)
-  })
 
-  res.status(200).json({ success: true })
+    res.status(200).json({ success: true })
+  })
 })
 
 app.use(function(req, res, next) {

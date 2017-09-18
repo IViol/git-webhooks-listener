@@ -4,7 +4,8 @@
   "description": "Git webhooks listener",
   "main": "server.js",
   "scripts": {
-    "dev": "babel-node server.js"
+    "dev": "babel-node server.js",
+    "start": "pm2 start npm --name git-wh-listener -- run dev"
   },
   "author": "Ivan Violentov <violentoff@gmail.com>",
   "license": "MIT",
