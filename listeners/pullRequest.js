@@ -11,6 +11,14 @@ module.exports = function pullRequest(payload, res) {
   console.log(`Action is ${action}`)
   console.log(`Branch is ${branch}`)
 
+  if (branch !== 'master') {
+    return res.status(201).json({ message: 'Payload was not for master. Aborting.' })
+  }
+
+  if (action !== 'assigned') {
+    return res.status(201).json({ message: 'Payload was not for merged PR. Aborting.' })
+  }
+
   console.log(`Child process ${command} ${args.join(' ')} is about to spawn`)
 
   const spawned = spawn(command, args)
