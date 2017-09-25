@@ -36,9 +36,9 @@ function getWebhook(payload) {
       return
     }
 
-    const isEqual = isEqual(options, payload.options)
+    const isOptionsEqual = isEqual(options, payload.options)
 
-    if (!isEqual) {
+    if (!isOptionsEqual) {
       return
     }
 
