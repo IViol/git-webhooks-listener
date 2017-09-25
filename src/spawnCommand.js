@@ -3,11 +3,13 @@ const { spawn } = require('child_process')
 const webhooks = require('../webhooks')
 
 module.exports = function spawnCommand(payload) {
-  const { command, args } = getWebhook(payload)
+  const webhook = getWebhook(payload)
 
   if (!webhook) {
     return { message: 'Command for this payload was not found. Aborting.', success: false }
   }
+
+  const { command, args } = webhook
 
   console.log(`Child process ${command} ${args.join(' ')} is about to spawn`)
 
