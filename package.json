@@ -2,9 +2,9 @@
   "name": "git-webhooks-listener",
   "version": "0.1.0",
   "description": "Git webhooks listener",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
-    "dev": "./node_modules/.bin/node server.js",
+    "dev": "./node_modules/.bin/node ./src/server.js",
     "start": "pm2 start npm --name git-wh-listener -- run dev",
     "restart": "pm2 restart git-wh-listener",
     "logs": "pm2 logs git-wh-listener"

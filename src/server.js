@@ -16,18 +16,20 @@ app.use(function(req, res, next) {
 app.post('/*', function(req, res, next) {
   const event = req.get('X-GitHub-Event')
   const secret = req.get('X-Hub-Signature')
-  const deliveryId = req.get('X-GitHub-Delivery')
+  // const deliveryId = req.get('X-GitHub-Delivery')
 
   const payload = req.body
 
   console.log(`Event ${event} was fired`)
+  console.log(payload)
+
   console.log(secret)
-  console.log(deliveryId)
+  // console.log(deliveryId)
 
   if (event === 'ping') {
     return listeners.ping(res)
   } else if (event === 'push') {
-    return listeners.push(res)
+    return listeners.push(payload, res)
   } else if (event === 'pull_request') {
     return listeners.pullRequest(payload, res)
   }
@@ -45,6 +47,8 @@ app.use(function(err, req, res, next) {
   res.status(500).json({ success: false })
 })
 
-app.listen(3000)
+const port = process.env.PORT || 3000
 
-console.log('Server listen on :3000')
+app.listen(port)
+
+console.log(`Server listen on ${port}`)

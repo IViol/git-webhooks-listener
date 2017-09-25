@@ -2,7 +2,7 @@ PROJECT_DIR = </your/repo/dir>
 PWD = /bin/pwd
 MAKE = /usr/bin/make
 
-pull-request:
+pull-master-closed:
   cd $(PROJECT_DIR) && \
   $(PWD) && \
   $(MAKE) git-pull && \

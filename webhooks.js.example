@@ -1,0 +1,11 @@
+module.exports = [{
+  event: 'pull',
+  options: {
+    branch: 'master',
+    action: 'closed',
+  },
+  command: 'make',
+  args: [
+    'pull-master-closed',
+  ],
+}]
